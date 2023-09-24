@@ -1,19 +1,24 @@
 package ru.amm.ledenev;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Press Opt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        try {
+            Scanner scanner = new Scanner(new File("/Users/aleksandrledenev/Desktop/Лаба1/test.txt"));
 
-        // Press Ctrl+R or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+            Student student = new Student();
+            student.FirstName = scanner.nextLine();
+            student.LastName = scanner.nextLine();
+            student.FatherName = scanner.nextLine();
+            student.Group = Integer.parseInt(scanner.nextLine());
+            student.Course = Integer.parseInt(scanner.nextLine());
 
-            // Press Ctrl+D to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Cmd+F8.
-            System.out.println("i = " + i);
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
     }
 }
