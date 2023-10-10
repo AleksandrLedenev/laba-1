@@ -9,15 +9,15 @@ public class Main {
         try {
             Scanner scanner = new Scanner(new File("./test.txt"));
 
-            // Следующее улучшение - попробуй прочитать студента, который записан в одну строку (помогут функции scanner.nextInt() и scanner.next())
             Student student = new Student();
-            student.firstName = scanner.nextLine();
-            student.lastname = scanner.nextLine();
-            student.fathername = scanner.nextLine();
-            student.group = Integer.parseInt(scanner.nextLine());
-            student.course = Integer.parseInt(scanner.nextLine());
+            student.firstName = scanner.next();
+            student.lastname = scanner.next();
+            student.fathername = scanner.next();
+            student.group = scanner.nextInt();
+            student.course = scanner.nextInt();
 
             scanner.close();
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
